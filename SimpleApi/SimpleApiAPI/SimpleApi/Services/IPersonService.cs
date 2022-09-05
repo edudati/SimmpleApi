@@ -6,7 +6,7 @@ namespace SimpleApi.Services
     {
         Person Create(Person person);
         Person Update(Person person);
-        //void Delete(long id);
+        void Delete(long id);
         List<Person> FindAll();
         Person FindById(long id);
     }

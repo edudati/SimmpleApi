@@ -45,13 +45,13 @@ namespace SimpleApi.Controllers
             return Ok(_personService.Update(person));
         }
 
-        /*[HttpDelete("{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
             if (_personService.FindById(id) == null) return NotFound();
             _personService.Delete(id);
             return NoContent();
-        }*/
+        }
 
     }
 }

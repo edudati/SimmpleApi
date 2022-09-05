@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using SimpleApi.Model.Context;
 using SimpleApi.Services;
 using SimpleApi.Services.Implementation;
 
@@ -16,6 +18,11 @@ namespace SimpleApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            var connection = Configuration["MySqlConnection:MySqlConnectionString"];
+            services.AddDbContext<MySqlContext>(options => options.UseMySql(
+                connection,
+                new MySqlServerVersion(new Version(5, 7, 38))));
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
