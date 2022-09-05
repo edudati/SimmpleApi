@@ -7,6 +7,7 @@ using SimpleApi.Repository;
 using SimpleApi.Repository.Implementation;
 using SimpleApi.Business;
 using SimpleApi.Business.Implementation;
+using SimpleApi.Model;
 
 namespace SimpleApi
 {
@@ -57,6 +58,8 @@ namespace SimpleApi
             app.UseAuthorization();
 
             app.MapControllers();
+
+            Seeding.Seed(app);
 
         }
     }
