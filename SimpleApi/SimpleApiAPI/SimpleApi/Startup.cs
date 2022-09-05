@@ -42,6 +42,8 @@ namespace SimpleApi
 
             services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
+            services.AddScoped<IBookRepository, BookRepositoryImplementation>();
+            services.AddScoped<IBookBusiness, BookBusinessImplementation>();
 
         }
 
