@@ -1,8 +1,8 @@
 ﻿using SimpleApi.Model;
 
-namespace SimpleApi.Services
+namespace SimpleApi.Business
 {
-    public interface IPersonService
+    public interface IPersonBusiness
     {
         Person Create(Person person);
         Person Update(Person person);

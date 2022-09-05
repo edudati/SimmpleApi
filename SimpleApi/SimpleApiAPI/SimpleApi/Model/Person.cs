@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SimpleApi.Model
 {
@@ -6,12 +7,15 @@ namespace SimpleApi.Model
     public class Person
     {
         [Column("id")]
+        [Key]
         public long Id { get; set; }
 
         [Column("first_name")]
+        [Required]
         public string FirstName { get; set; }
 
         [Column("last_name")]
+        [Required]
         public string LastName { get; set; }
 
         public Person()
@@ -19,9 +23,8 @@ namespace SimpleApi.Model
 
         }
 
-        public Person(long id, string firstName, string lastName)
+        public Person(string firstName, string lastName)
         {
-            Id = id;
             FirstName = firstName;
             LastName = lastName;
         }

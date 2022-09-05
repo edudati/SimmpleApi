@@ -2,13 +2,13 @@
 using SimpleApi.Model.Context;
 using System;
 
-namespace SimpleApi.Services.Implementation
+namespace SimpleApi.Repository.Implementation
 {
-    public class PersonServiceImplementation : IPersonService
+    public class PersonRepositoryImplementation : IPersonRepository
     {
         private MySqlContext _context;
 
-        public PersonServiceImplementation(MySqlContext context)
+        public PersonRepositoryImplementation(MySqlContext context)
         {
             _context = context;
         }
@@ -73,7 +73,7 @@ namespace SimpleApi.Services.Implementation
             return _context.Persons.SingleOrDefault(p => p.Id.Equals(id));
         }
 
-        private bool Exists(long id)
+        public bool Exists(long id)
         {
             return _context.Persons.Any(p => p.Id.Equals(id));
         }
