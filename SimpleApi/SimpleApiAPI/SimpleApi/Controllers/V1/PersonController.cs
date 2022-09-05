@@ -2,8 +2,9 @@
 using SimpleApi.Model;
 using SimpleApi.Services;
 
-namespace SimpleApi.Controllers
+namespace SimpleApi.Controllers.V1
 {
+    [ApiVersion("1.0")]
     [ApiController]
     [Route("api/[controller]")]
     public class PersonController : ControllerBase
@@ -27,14 +28,14 @@ namespace SimpleApi.Controllers
         public IActionResult Get(long id)
         {
             var person = _personService.FindById(id);
-            if(person == null) return NotFound();
+            if (person == null) return NotFound();
             return Ok(person);
         }
 
         [HttpPost]
         public IActionResult Get([FromBody] Person person)
         {
-            if(person == null) return BadRequest();
+            if (person == null) return BadRequest();
             return Ok(_personService.Create(person));
         }
 
