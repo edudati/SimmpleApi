@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using SimpleApi.Services;
+using SimpleApi.Services.Implementation;
 
 namespace SimpleApi
 {
@@ -17,6 +19,8 @@ namespace SimpleApi
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            services.AddScoped<IPersonService, PersonServiceImplementation>();
 
         }
 
