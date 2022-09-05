@@ -1,6 +1,5 @@
 ﻿using SimpleApi.Model;
 using SimpleApi.Model.Context;
-using System;
 
 namespace SimpleApi.Repository.Implementation
 {

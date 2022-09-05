@@ -53,6 +53,5 @@ namespace SimpleApi.Controllers.V1
             _personBusiness.Delete(id);
             return NoContent();
         }
-
     }
 }
