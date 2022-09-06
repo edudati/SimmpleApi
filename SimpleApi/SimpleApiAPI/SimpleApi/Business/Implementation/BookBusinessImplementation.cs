@@ -1,13 +1,14 @@
 ﻿using SimpleApi.Model;
 using SimpleApi.Repository;
+using SimpleApi.Repository.Generic;
 
 namespace SimpleApi.Business.Implementation
 {
     public class BookBusinessImplementation : IBookBusiness
     {
-        public readonly IBookRepository _repository;
+        public readonly IRepository<Book> _repository;
 
-        public BookBusinessImplementation(IBookRepository repository)
+        public BookBusinessImplementation(IRepository<Book> repository)
         {
             _repository = repository;
         }

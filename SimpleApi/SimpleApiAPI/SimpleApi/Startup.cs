@@ -3,11 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using SimpleApi.Model.Context;
-using SimpleApi.Repository;
-using SimpleApi.Repository.Implementation;
 using SimpleApi.Business;
 using SimpleApi.Business.Implementation;
 using SimpleApi.Model;
+using SimpleApi.Repository.Generic;
 
 namespace SimpleApi
 {
@@ -40,10 +39,10 @@ namespace SimpleApi
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-            services.AddScoped<IBookRepository, BookRepositoryImplementation>();
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
         }
 

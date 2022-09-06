@@ -4,12 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SimpleApi.Model
 {
     [Table("person")]
-    public class Person
+    public class Person : BaseEntity
     {
-        [Column("id")]
-        [Key]
-        public long Id { get; set; }
-
         [Column("first_name")]
         [Required]
         public string FirstName { get; set; }
