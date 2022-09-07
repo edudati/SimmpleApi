@@ -7,6 +7,7 @@ using SimpleApi.Business;
 using SimpleApi.Business.Implementation;
 using SimpleApi.Model;
 using SimpleApi.Repository.Generic;
+using Microsoft.Net.Http.Headers;
 
 namespace SimpleApi
 {
@@ -21,6 +22,15 @@ namespace SimpleApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+                options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
+            })
+                .AddXmlSerializerFormatters();
+            
+
             services.AddApiVersioning(options =>
             {
                 options.ReportApiVersions = true;
