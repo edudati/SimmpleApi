@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleApi.Business;
+using SimpleApi.Data.VO;
 using SimpleApi.Model;
 
 namespace SimpleApi.Controllers.V1
@@ -33,14 +34,14 @@ namespace SimpleApi.Controllers.V1
         }
 
         [HttpPost]
-        public IActionResult Get([FromBody] Book book)
+        public IActionResult Get([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return Ok(_bookBusiness.Create(book));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Book book)
+        public IActionResult Put([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return Ok(_bookBusiness.Update(book));

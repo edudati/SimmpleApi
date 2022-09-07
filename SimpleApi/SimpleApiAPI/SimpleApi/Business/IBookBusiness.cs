@@ -1,13 +1,13 @@
-﻿using SimpleApi.Model;
+﻿using SimpleApi.Data.VO;
 
 namespace SimpleApi.Business
 {
     public interface IBookBusiness
     {
-        Book Create(Book book);
-        Book Update(Book book);
+        BookVO Create(BookVO book);
+        BookVO FindById(long id);
+        List<BookVO> FindAll();
+        BookVO Update(BookVO book);
         void Delete(long id);
-        List<Book> FindAll();
-        Book FindById(long id);
     }
 }
